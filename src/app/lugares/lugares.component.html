@@ -1,0 +1,75 @@
+<agm-map [latitude]="lat" [longitude]="lng" [zoom]="zoom">
+  <ng-container *ngIf="lugares">
+    <agm-marker *ngFor="let lugar of lugares" [latitude]="lugar.lat" [longitude]="lugar.lng"></agm-marker>
+  </ng-container>
+  <agm-marker *ngIf="!lugares" [latitude]="lat" [longitude]="lng"></agm-marker>
+</agm-map>
+<hr>
+
+<!-- <div id="cuadrado" [@contenedorAnimable]="state" (@contenedorAnimable.start)="animacionInicial($event)"
+(@contenedorAnimable.done)="animacionTerminada($event)"></div>
+<button class="btn btn-default" (click)="animar()">Animar</button> -->
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-8" style="padding-top: 29px;">
+      <button class="btn btn-primary" routerLink="/crear/new">
+        <span class="glyphicon glyphicon-plus"></span>
+        Nuevo negocio
+      </button>
+      <div class="table-responsive">
+        <table class="table">
+          <thead>
+            <tr>
+              <th>Lugares</th>
+              <th>Editar</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let lugar of lugares">
+              <td>
+                <a routerLink="/detalle/{{lugar.id}}"> <h3>{{lugar.nombre}}</h3></a>
+                <br>
+                <small>Publicado {{lugar.id | date:'medium' | uppercase}}</small>
+                <br>
+                <small>Plan {{lugar.plan}}</small>
+                <p [innerHTML]="lugar.descripcion | linkifystr"></p>
+              </td>
+              <td>
+                <br>
+                <a routerLink="/crear/{{lugar.id}}"><span class="glyphicon glyphicon-pencil"></span></a>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+    <div class="col-md-4">
+      <h2>Destacados</h2>
+      <div class="table-responsive" [@contenedorAnimable]="state">
+        <table class="table">
+          <thead>
+            <tr>
+              <th>Lugares</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let lugar of lugares">
+              <td *ngIf="lugar.plan == 'pagado'">
+                <a routerLink="/detalle/{{lugar.id}}">
+                  <h3>
+                    {{lugar.nombre}}
+                    <span class="glyphicon glyphicon-star" style="color: yellow !important;"></span>
+                  </h3>
+                </a>
+                <br>
+                <small>Publicado {{lugar.id | date:'medium' | uppercase}}</small>
+                <p [innerHTML]="lugar.descripcion | linkifystr"></p>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>

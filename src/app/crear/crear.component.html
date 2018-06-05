@@ -1,0 +1,40 @@
+<div class="container">
+  <h2>Agregar negocio</h2>
+  <br>
+  <label for="nombre">Nombre</label>
+  <input type="text" name="nombre" id="nombre" class="form-control" [(ngModel)]="lugar.nombre">
+  <label for="distancia">Distancia</label>
+  <input type="number" name="distancia" id="distancia" class="form-control" [(ngModel)]="lugar.distancia">
+  <label for="cercania">Cercanía</label>
+  <input type="number" name="cercania" id="cercania" class="form-control" [(ngModel)]="lugar.cercania">
+  <label for="plan">Plan</label>
+  <input type="text" name="plan" id="plan" class="form-control" [(ngModel)]="lugar.plan">
+  <label for="descripcion">Descripción</label>
+  <textarea name="descripcion" id="descripcion" cols="30" rows="3" class="form-control" [(ngModel)]="lugar.descripcion"></textarea>
+  <h3>Datos de dirección</h3>
+  <div class="well">
+    <form>
+      <label>Buscar negocio en Google</label>
+      <input type="text" class="form-control" [formControl]="searchField">
+      <ul class="list-group">
+        <li class="list-group-item" *ngFor="let result of results$ | async" (click)="selAddress(result)"><a style="cursor: pointer;">{{result.formatted_address}}</a></li>
+      </ul>
+    </form>
+  </div>
+  <label for="calle">Calle</label>
+  <input type="text" name="calle" id="calle" class="form-control" [(ngModel)]="lugar.calle">
+  <label for="ciudad">Ciudad</label>
+  <input type="text" name="ciudad" id="ciudad" class="form-control" [(ngModel)]="lugar.ciudad">
+  <label for="pais">País</label>
+  <input type="text" name="pais" id="pais" class="form-control" [(ngModel)]="lugar.pais">
+  <hr>
+  <button class="btn btn-primary btn-block" (click)="guardarLugar()">Enviar</button>
+  <br><br>
+  <br><br>
+  <div class="alert alert-success alert-dismissable" [hidden]="success">
+    <strong>Success!</strong> {{message}}.
+  </div>
+  <div class="alert alert-warning alert-dismissable" [hidden]="warning">
+    <strong>Warning!</strong> {{messageW}}.
+  </div>
+</div>

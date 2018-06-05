@@ -1,0 +1,10 @@
+.numero_par{
+    background-color: aliceblue;
+    color: blue;
+}
+
+.navbar {
+    border-radius: 0 !important;
+    margin-bottom: 0 !important;
+    box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.26) !important;
+}

@@ -1,1 +1,26 @@
-/* You can add global styles to this file, and also import other style files */
+body {
+    color: white;
+    background: #16222A;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #3A6073, #16222A);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #3A6073, #16222A); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+
+}
+
+.well{
+    color: black;
+}
+
+table a{
+    color: rgb(238, 177, 98);
+}
+
+table a:hover{
+    color: rgb(252, 143, 0);
+    text-decoration: none;
+}
+#cuadrado {
+    width: 200px;
+    height: 200px;
+    background-color: red;
+}
